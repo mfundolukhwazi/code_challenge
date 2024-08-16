@@ -16,7 +16,7 @@ data class ActivityDto(
 )
 
 fun ActivityDto.toActivity(): Activity {
-    return  Activity(
+    return Activity(
         accessibility = accessibility,
         activity = activity,
         availability = availability,
@@ -27,5 +27,5 @@ fun ActivityDto.toActivity(): Activity {
         participants = participants,
         price = price,
         type = type
-    );
+    )
 }

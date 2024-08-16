@@ -14,25 +14,22 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-@InstallIn (SingletonComponent::class)
+@InstallIn(SingletonComponent::class)
 object AppModule {
 
     @Provides
     @Singleton
-    fun provideBoredApi(): BoredApi
-    {
-        return  Retrofit.Builder()
+    fun provideBoredApi(): BoredApi {
+        return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(BoredApi::class.java)
-
     }
 
     @Provides
     @Singleton
-    fun provideActivityRepository(api: BoredApi): ActivityRepository
-    {
-        return  ActivityRepositoryImpl(api)
+    fun provideActivityRepository(api: BoredApi): ActivityRepository {
+        return ActivityRepositoryImpl(api)
     }
 }

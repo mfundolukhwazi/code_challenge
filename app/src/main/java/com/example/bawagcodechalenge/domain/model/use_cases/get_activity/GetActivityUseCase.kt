@@ -17,11 +17,9 @@ class GetActivityUseCase @Inject constructor(
             emit(Resource.Loading<Activity>());
             val activity = repository.getActivity();
             emit(Resource.Success<Activity>(activity))
-        }catch (e: HttpException)
-        {
+        } catch (e: HttpException) {
             emit(Resource.Error<Activity>(message = e.localizedMessage))
-        }catch (e: IOException)
-        {
+        } catch (e: IOException) {
             emit(Resource.Error<Activity>(message = "Could not reach server. Check your connection"))
         }
     }

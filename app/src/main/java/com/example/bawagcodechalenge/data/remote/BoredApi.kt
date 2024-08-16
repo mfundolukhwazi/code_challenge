@@ -6,9 +6,10 @@ import retrofit2.http.Query
 
 interface BoredApi {
 
-   @GET("random")
-   suspend fun getRandomActivity(): Activity
-   @GET("filter")
-   suspend fun getFilteredActivity(@Query("type") type:String): List<Activity>
+    @GET("random")
+    suspend fun getRandomActivity(): Activity
+
+    @GET("filter")
+    suspend fun getFilteredActivity(@Query("type") type: String): List<Activity>
 
 }

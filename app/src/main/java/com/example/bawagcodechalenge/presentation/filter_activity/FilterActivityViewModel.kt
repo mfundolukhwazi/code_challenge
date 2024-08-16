@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 class FilterActivityViewModel @Inject constructor(
     private val getFilteredActivity: GetFilteredActivityUseCase
-): ViewModel() {
+) : ViewModel() {
 
     init {
         getFilterActivity("Education")
@@ -23,9 +23,8 @@ class FilterActivityViewModel @Inject constructor(
     private val _state = mutableStateOf(ActivityState())
     val state: State<ActivityState> = _state
 
-    private fun getFilterActivity(type: String)
-    {
-        getFilteredActivity(type).onEach {result ->
+    private fun getFilterActivity(type: String) {
+        getFilteredActivity(type).onEach { result ->
             run {
                 when (result) {
                     is Resource.Success -> {

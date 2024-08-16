@@ -22,15 +22,18 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             BawagCodeChalengeTheme {
-               Surface(color = MaterialTheme.colorScheme.background) {
-                   val navController =  rememberNavController();
-                    NavHost(navController = navController, startDestination = Screen.ActivityScreen.route ){
+                Surface(color = MaterialTheme.colorScheme.background) {
+                    val navController = rememberNavController();
+                    NavHost(
+                        navController = navController,
+                        startDestination = Screen.ActivityScreen.route
+                    ) {
                         composable(route = Screen.ActivityScreen.route) {
                             val activityViewModel = hiltViewModel<ActivityViewModel>()
                             ActivityScreen(viewModel = activityViewModel)
                         }
                     }
-               }
+                }
             }
         }
     }

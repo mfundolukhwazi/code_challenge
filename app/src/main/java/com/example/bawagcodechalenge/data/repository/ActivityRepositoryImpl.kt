@@ -6,14 +6,14 @@ import com.example.bawagcodechalenge.domain.repository.ActivityRepository
 import javax.inject.Inject
 
 class ActivityRepositoryImpl @Inject constructor(
-    private val api : BoredApi
-) : ActivityRepository{
+    private val api: BoredApi
+) : ActivityRepository {
     override suspend fun getActivity(): Activity {
-       return api.getRandomActivity()
+        return api.getRandomActivity()
     }
 
     override suspend fun filterActivity(type: String): List<Activity> {
-       return api.getFilteredActivity(type)
+        return api.getFilteredActivity(type)
     }
 
 }

@@ -1,6 +1,6 @@
 package com.example.bawagcodechalenge.domain.model
 
-data class Activity (
+data class Activity(
     val accessibility: String,
     val activity: String,
     val availability: Double,
