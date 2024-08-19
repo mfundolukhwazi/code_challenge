@@ -14,11 +14,11 @@ class GetFilteredActivityUseCase @Inject constructor(
 ) {
     operator fun invoke(type: String): Flow<Resource<List<Activity>>> = flow {
         try {
-            emit(Resource.Loading<List<Activity>>());
+            emit(Resource.Loading());
             val activities = repository.filterActivity(type)
-            emit(Resource.Success<List<Activity>>(activities))
+            emit(Resource.Success(activities))
         } catch (e: HttpException) {
-            emit(Resource.Error<List<Activity>>(message = e.localizedMessage))
+            emit(Resource.Error(message = e.localizedMessage))
         } catch (e: IOException) {
             emit(Resource.Error(message = "Could not reach server. Check your connection"))
         }

@@ -14,13 +14,15 @@ class GetActivityUseCase @Inject constructor(
 ) {
     operator fun invoke(): Flow<Resource<Activity>> = flow {
         try {
-            emit(Resource.Loading<Activity>());
+            emit(Resource.Loading());
             val activity = repository.getActivity();
-            emit(Resource.Success<Activity>(activity))
+            emit(Resource.Success(activity))
         } catch (e: HttpException) {
-            emit(Resource.Error<Activity>(message = e.localizedMessage))
+            emit(Resource.Error(message = e.localizedMessage))
         } catch (e: IOException) {
-            emit(Resource.Error<Activity>(message = "Could not reach server. Check your connection"))
+            emit(Resource.Error(message = "Could not reach server. Check your connection"))
+        } catch (e: RuntimeException) {
+            emit(Resource.Error(message = "An error occurred"))
         }
     }
 }

@@ -26,9 +26,9 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController();
                     NavHost(
                         navController = navController,
-                        startDestination = Screen.ActivityScreen.route
+                        startDestination = Routes.ActivityScreen.route
                     ) {
-                        composable(route = Screen.ActivityScreen.route) {
+                        composable(route = Routes.ActivityScreen.route) {
                             val activityViewModel = hiltViewModel<ActivityViewModel>()
                             ActivityScreen(viewModel = activityViewModel)
                         }
